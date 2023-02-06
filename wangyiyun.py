@@ -30,10 +30,9 @@ def find_lyric(id: int):
     strhtml = requests.get(url, headers=headers).text  # Get方式获取网页数据
     try:
         _date = json.loads(strhtml)
-        return _date["lrc"]["lyric"]+_date["tlyric"]["lyric"]
+        return _date["lrc"]["lyric"] + _date["tlyric"]["lyric"]
     except Exception as e:
         return _date["lrc"]["lyric"]
-
 
 
 def proj():  # 启动
@@ -57,5 +56,6 @@ def proj():  # 启动
             print("ok")
         else:
             proj()
+
 
 proj()

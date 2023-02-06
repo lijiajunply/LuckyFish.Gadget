@@ -1,9 +1,7 @@
 import json
-
 import requests
 
 
-# 翻译函数，word 需要翻译的内容
 def translate(word):
     # 有道词典 api
     url = 'http://fanyi.youdao.com/translate?smartresult=dict&smartresult=rule&smartresult=ugc&sessionFrom=null'
@@ -26,15 +24,16 @@ def translate(word):
         return response.text
     else:
         print("有道词典调用失败")
-        # 相应失败就返回空
         return None
+
 
 def get_reuslt(repsonse):
     # 通过 json.loads 把返回的结果加载成 json 格式
     result = json.loads(repsonse)
-    print ("输入的词为：%s" % result['translateResult'][0][0]['src'])
-    print ("翻译结果为：%s" % result['translateResult'][0][0]['tgt'])
-    return result['translateResult'][0][0]['tgt']
+    print("输入的词为：%s" % result['translateResult'][0][0]['src'])
+    print("翻译结果为：%s" % result['translateResult'][0][0]['tgt'])
+    return result['translateResult'][0][0]['tgt']  # 输出结果
+
 
 def main():
     print("本程序调用有道词典的API进行翻译，可达到以下效果：")
@@ -44,6 +43,7 @@ def main():
     list_trans = translate(word)
     get_reuslt(list_trans)
 
+
 if __name__ == '__main__':
-    while 1 :
+    while 1:
         main()

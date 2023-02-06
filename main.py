@@ -1,5 +1,5 @@
 import translate
 import wangyiyun
 
-translate.main();
-wangyiyun.proj();
+translate.main()
+wangyiyun.proj()
